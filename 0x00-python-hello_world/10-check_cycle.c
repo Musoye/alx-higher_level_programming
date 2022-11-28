@@ -7,9 +7,16 @@
 int check_cycle(listint_t *list)
 {
 	listint_t *current = list;
-	int *address = &list;
 
-	while (current != address)
+	if (current->next != NULL)
+	{
+		current = current->next;
+	}
+	else
+	{
+		return (0);
+	}
+	while (current != list)
 	{
 		if (current->next == NULL)
 		{
