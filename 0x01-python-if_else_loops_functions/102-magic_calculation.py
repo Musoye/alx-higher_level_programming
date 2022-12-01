@@ -1,5 +1,4 @@
 #!/usr/bin/python3
-import dis
 def magic_calculation(a, b, c):
     """magic calculation solution part 2"""
     if a < b:
