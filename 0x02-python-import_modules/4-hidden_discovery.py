@@ -1,10 +1,10 @@
-#!/python/usr/python3
+#!/usr/bin/python3
 
 if __name__ == "__main__":
     """print variable in hidden_4"""
     import hidden_4
 
-    var = dir(hidden_4)
-    for i in var:
-        if i[:2] != "__":
-            print(i)
+    names = dir(hidden_4)
+    for name in names:
+        if name[:2] != "__":
+            print(name)
