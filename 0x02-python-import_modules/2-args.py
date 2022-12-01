@@ -10,8 +10,8 @@ if __name__ == "__main__":
         print("0 arguments.")
     elif b == 1:
         print("{} argument:".format(b))
-        print("{}: {}".format(b, argv[b])
-    else:
+        print("{}: {}".format(b, argv[b]))
+    elif b > 1:
         print("{} arguments:".format(b))
         for i in range(1, len(argv)):
             print("{}: {}".format(i, argv[i]))
