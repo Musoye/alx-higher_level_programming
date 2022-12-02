@@ -8,7 +8,7 @@ if __name__ == "__main__":
     if len(sys.argv) - 1 != 3:
         print("Usage: ./100-my_calculator.py <a> <operator> <b>")
         sys.exit(1)
-    signs = [ "*", "+", "-", "/"]
+    signs = ["*", "+", "-", "/"]
     argv = sys.argv
     x = argv[1]
     y = argv[2]
