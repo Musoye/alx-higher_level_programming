@@ -7,7 +7,7 @@ if __name__ == "__main__":
 
     argv = sys.argv
     b = len(argv) - 1
-    signs = ['+', '*', '/', '-']
+    signs = ['+', "*", '/', '-']
     x = argv[1]
     y = argv[2]
     z = argv[3]
@@ -20,7 +20,7 @@ if __name__ == "__main__":
     else:
         if argv[2] == '+':
             print("{} {} {} = {}".format(x, y, z, add(int(x), int(z))))
-        elif argv[2] == '*':
+        elif argv[2] == "*":
             print("{} {} {} = {}".format(x, y, z, mul(int(x), int(z))))
         elif argv[2] == '/':
             print("{} {} {} = {}".format(x, y, z, div(int(x), int(z))))
