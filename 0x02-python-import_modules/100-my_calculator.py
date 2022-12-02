@@ -5,16 +5,15 @@ if __name__ == "__main__":
     import sys
     from calculator_1 import add, mul, sub, div
 
+    if len(sys.argv) - 1 != 3:
+        print("Usage: ./100-my_calculator.py <a> <operator> <b>")
+        sys.exit(1)
+    signs = [ "*", "+", "-", "/"]
     argv = sys.argv
-    b = len(argv) - 1
-    signs = ['+', "*", '/', '-']
     x = argv[1]
     y = argv[2]
     z = argv[3]
-    if b != 3:
-        print("Usage: ./100-my_calculator.py <a> <operator> <b>")
-        sys.exit(1)
-    elif argv[2] not in signs:
+    if y not in signs:
         print("Unknown operator. Available operators: +, -, * and /")
         sys.exit(1)
     else:
