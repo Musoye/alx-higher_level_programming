@@ -8,6 +8,9 @@ if __name__ == "__main__":
     argv = sys.argv
     b = len(argv) - 1
     signs = ['+', '*', '/', '-']
+    x = argv[1]
+    y = argv[2]
+    z = argv[3]
     if b != 3:
         print("Usage: ./100-my_calculator.py <a> <operator> <b>")
         sys.exit(1)
@@ -16,10 +19,10 @@ if __name__ == "__main__":
         sys.exit(1)
     else:
         if argv[2] == '+':
-            print("{} {} {} = {}".format(argv[1], argv[2], argv[3], add(int(argv[1]), int(argv[3]))))
+            print("{} {} {} = {}".format(x, y, z, add(int(x), int(z))))
         elif argv[2] == '*':
-            print("{} {} {} = {}".format(argv[1], argv[2], argv[3], mul(int(argv[1]), int(argv[3]))))
+            print("{} {} {} = {}".format(x, y, z, mul(int(x), int(z))))
         elif argv[2] == '/':
-            print("{} {} {} = {}".format(argv[1], argv[2], argv[3], div(int(argv[1]), int(argv[3]))))
+            print("{} {} {} = {}".format(x, y, z, div(int(x), int(z))))
         elif argv[2] == '-':
-            print("{} {} {} = {}".format(argv[1], argv[2], argv[3], add(int(argv[1]), int(argv[3]))))
+            print("{} {} {} = {}".format(x, y, z, sub(int(x), int(z))))
