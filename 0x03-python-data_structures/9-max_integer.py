@@ -8,6 +8,8 @@ def max_integer(my_list=[]):
     Returns:
         return the max element
     """
+    if len(my_list) == 0:
+        return (None)
     min_value = -10000000
     for i in my_list:
         if i > min_value:
