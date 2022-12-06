@@ -8,6 +8,11 @@ def print_matrix_integer(matrix=[[]]):
     Returns:
         NULL
     """
+    if len(matrix) == 0 or matrix == None:
+        return ('')
     for i in range(len(matrix)):
-        if len(matrix[i]) != 0:
-            print("{:d} {:d} {:d}".format(matrix[i][0], matrix[i][1], matrix[i][2]))
+        for j in range(len(matrix[i])):
+            if j == len(matrix[i]) - 1:
+                print("{:d}".format(matrix[i][j]))
+            else:
+                print("{:d}".format(matrix[i][j]), end=' ')
