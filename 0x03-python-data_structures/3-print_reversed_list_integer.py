@@ -8,9 +8,11 @@ def print_reversed_list_integer(my_list=[]):
     Returns:
         Null
     """
+    if my_list == None:
+        return ('')
     if len(my_list) == 0:
         return ('')
-    for i in range (int(len(my_list) / 2)):
+    for i in range(int(len(my_list) / 2)):
         ldx = len(my_list) - i - 1
         elem = my_list[ldx]
         my_list[ldx] = my_list[i]
