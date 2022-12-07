@@ -8,6 +8,4 @@ def number_keys(a_dictionary):
     Returns:
         the numbers of the key
     """
-    if a_dictionary == {}:
-        return  (0)
-    return (len(list(a_dictionary)))
+    return (len(a_dictionary))
