@@ -9,7 +9,7 @@ def roman_to_int(roman_string):
         the arabic numeral
     """
     roman = ['M', 'D', 'CD', 'C', 'XC', 'L', 'XL', 'X', 'IX',
-            'V', 'IV', 'I']
+             'V', 'IV', 'I']
     arabic = [1000, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1]
     length = len(roman_string)
     number = 0
