@@ -8,6 +8,8 @@ def roman_to_int(roman_string):
     Returns:
         the arabic numeral
     """
+    if type(roman_string) != str or roman_string is None:
+        return (0)
     roman = ['M', 'D', 'CD', 'C', 'XC', 'L', 'XL', 'X', 'IX',
              'V', 'IV', 'I']
     arabic = [1000, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1]
