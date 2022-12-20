@@ -50,7 +50,7 @@ class Square:
         """print square form the size"""
         value = self.__size
         for i in range(value):
-            [print'#' for j in range(value)]
+            [print('#', end='') for j in range(value)]
             print('')
         if value == 0:
             print('')
