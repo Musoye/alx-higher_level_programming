@@ -39,12 +39,11 @@ class Node:
     @next_node.setter
     def next_node(self, value):
         """rest the next_node value
-
         Args:
-            value: the value to replace
+            value:the value to replace
         """
         if ((value is not None) and (not
-            isinstance(value, Node))):
+                                     isinstance(value, Node))):
             raise TypeError("next_node must be a Node object")
         self.__next_node = value
 
@@ -73,7 +72,7 @@ class SinglyLinkedList:
             current = self.__head
             while (current.next_node is not None
                    and current.next_node.data < value):
-                   current = current.next_node
+                current = current.next_node
             new.next_node = current.next_node
             current.next_node = new
 
