@@ -82,4 +82,4 @@ class SinglyLinkedList:
         while cur is not None:
             value.append(str(cur.data))
             cur = cur.next_node
-        return ('\n'.join(value)) 
+        return ('\n'.join(value))
