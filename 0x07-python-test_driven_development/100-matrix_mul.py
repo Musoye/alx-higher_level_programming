@@ -3,6 +3,7 @@
 multiplication of two matrices
 """
 
+
 def matrix_mul(m_a, m_b):
     """multiplication of two matrices
 
