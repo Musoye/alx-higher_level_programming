@@ -3,6 +3,7 @@
 This is a module for printing square with #
 """
 
+
 def print_square(size):
     """printing of square with #
 

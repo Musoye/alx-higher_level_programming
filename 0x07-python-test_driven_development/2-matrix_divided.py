@@ -1,7 +1,8 @@
 #!/usr/bin/python3
 """
-This about dividing the list of list of int and float by divisor 
+This about dividing the list of list of int and float by divisor
 """
+
 
 def matrix_divided(matrix, div):
     """divide through by mtrix
@@ -19,12 +20,14 @@ def matrix_divided(matrix, div):
     Returns:
         the new list without mutatng original list
     """
-    if (not isinstance(matrix, list) or
-            matrix == [] or 
-            not all(isinstance(num, list) for num in matrix) or
-            not all((isinstance(elem, int)) or (isinstance(elem,float))
-                     for elem in [a for b in matrix for a in b])):
-        raise TypeError("matrix must be a matrix (list of lists) of integers/floats")
+    if (not isinstance(matrix, list)
+        or matrix == []
+        or not all(isinstance(num, list) for num in matrix)
+        or not all((isinstance(elem, int))
+                   or (isinstance(elem, float))
+                   for elem in [a for b in matrix for a in b])):
+        raise TypeError("matrix must be a matrix (list of lists)\
+        of integers/floats")
     if not (all(len(a) == len(matrix[0]) for a in matrix)):
         raise TypeError("Each row of the matrix must have the same size")
     if not ((isinstance(div, int)) or (isinstance(div, float))):
