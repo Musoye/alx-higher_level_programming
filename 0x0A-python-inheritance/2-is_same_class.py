@@ -2,6 +2,8 @@
 """Check for the same object"""
 
 
-    def is_same_class(obj, a_class):
-        """is istance function"""
-        return (isinstance(obj, a_class))
+def is_same_class(obj, a_class):
+    """is istance function"""
+    if type(obj) == a_class:
+        return (True)
+    return (False)
