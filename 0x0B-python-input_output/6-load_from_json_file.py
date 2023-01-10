@@ -13,4 +13,4 @@ def load_from_json_file(filename):
         the python data structure
     """
     with open(filename, 'r') as myfile:
-        return (json.loads(myfile))
+        return (json.load(myfile))
