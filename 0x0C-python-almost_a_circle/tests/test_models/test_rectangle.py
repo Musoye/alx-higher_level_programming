@@ -46,3 +46,31 @@ class TestRectangleInstance(unittest.TestCase):
         r = Rectangle(5, 7, 7, 5, 1)
         r.y = 10
         self.assertEqual(10, r.y)
+
+
+class TestAReaRectangle(unittest.TestCase):
+    """Test for Area of Rectangle"""
+
+    def test_area_with_pre(self):
+        r = Rectangle(10, 2)
+        self.assertEqual(20, r.area())
+
+    def test_area_with_other(self):
+        r = Rectangle(8, 7, 0, 0, 12)
+        self.assertEqual(56, r.area())
+
+    def test_area_with_modify(self):
+        r = Rectangle(9, 3)
+        r.width = 10
+        self.assertEqual(30, r.area())
+
+    def test_arear_height(self):
+        r = Rectangle(9, 3)
+        r.height = 10
+        self.assertEqual(90, r.area())
+
+    def test_arear_both(self):
+        r = Rectangle(1, 2)
+        r.width = 11
+        r.height = 10
+        self.assertEqual(110, r.area())
