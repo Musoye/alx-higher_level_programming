@@ -3,6 +3,8 @@
 import unittest
 from models.rectangle import Rectangle
 from models.base import Base
+import io
+import sys
 
 
 class TestRectangleInstance(unittest.TestCase):
@@ -74,3 +76,32 @@ class TestAReaRectangle(unittest.TestCase):
         r.width = 11
         r.height = 10
         self.assertEqual(110, r.area())
+
+
+class TestRectangle_stdout(unittest.TestCase):
+    """test fot stdout of display"""
+
+    @staticmethod
+    def capture_stdout(rec, method):
+        """capture the stdout"""
+        capture = io.StringIO()
+        sys.stdout = capture
+        if method == "print":
+            print(rec)
+        else:
+            rec.display()
+        sys.stdout = sys.__stdout__
+        return(capture)
+
+     ##test display
+    def test_display_width(self):
+        """test the display"""
+        r = Rectangle(2, 3, 0, 0, 0)
+        capture = TestRectangle_stdout.capture_stdout(r, "display")
+        self.assertEqual("##\n##\n##\n", capture.getvalue())
+
+    def test_display_height(self):
+        """test the display"""
+        r = Rectangle(4, 3, 0, 0, 0)
+        capture = TestRectangle_stdout.capture_stdout(r, "display")
+        self.assertEqual("####\n####\n####\n", capture.getvalue())
