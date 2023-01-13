@@ -154,3 +154,19 @@ class TestUpdate(unittest.TestCase):
         r5 = Rectangle(1, 2, 3, 4, 5)
         r5.update(width = 49, height = 40, x = 2, y = 3, id = 7)
         self.assertEqual(r5.area(), 1960)
+
+
+class TestToDictionary(unittest.TestCase):
+    """Rectangle To Dictionary"""
+
+    def test_to_dict_first(self):
+        s1 = Rectangle(2, 4)
+        s1.id = 8
+        p = {'id': 8, 'width': 2, 'height': 4, 'x': 0, 'y': 0}
+        self.assertEqual(s1.to_dictionary(), p)
+
+    def test_to_dict_with_edit(self):
+         s1 = Rectangle(2, 4, 5, 6, 7)
+         s1.update(6, 5, 4, 5, 6)
+         p = {'id': 6, 'width': 5, 'height': 4, 'x': 5, 'y': 6}
+         self.assertEqual(s1.to_dictionary(), p)
