@@ -3,8 +3,8 @@
 from models.rectangle import Rectangle
 from models.square import Square
 import unittest
-#import io
-#import sys
+import io
+import sys
 
 
 class TestSquareInstatiation(unittest.TestCase):
@@ -94,3 +94,60 @@ class TestSizeSetterGetter(unittest.TestCase):
         s2 = Square(8)
         with self.assertRaises(ValueError):
             s2.size = -4
+
+
+class TestSquare_stdout(unittest.TestCase):
+    """Testing for std out and update"""
+
+    @staticmethod
+    def capture_stdout(rect, value):
+        """cpature the stdout"""
+        capture = io.StringIO()
+        sys.stdout = capture
+        if value == "print":
+            print(rect)
+        else:
+            rect.display()
+        sys.stdout = sys.__stdout__
+        return (capture)
+
+    def test_display_a(self):
+        s1 = Square(3)
+        value = TestSquare_stdout.capture_stdout(s1, 'display')
+        self.assertEqual('###\n###\n###\n', value.getvalue())
+
+    def test_display_b(self):
+        s1 = Square(3)
+        s1.size = 2
+        value = TestSquare_stdout.capture_stdout(s1, 'display')
+        self.assertEqual('##\n##\n', value.getvalue())
+
+    #test update *args and **kwargs
+    def test_args_first(self):
+        s1 = Square(4, 3, 2, 1)
+        s1.update(4, 2, 3, 7)
+        self.assertEqual(s1.area(), 4)
+        self.assertEqual(s1.x, 3)
+        self.assertEqual(s1.y, 7)
+        self.assertEqual(s1.id, 4)
+
+    def test_incomplete_args(self):
+        s1 = Square(7)
+        s1.update(3)
+        self.assertEqual(s1.area(), 49)
+        self.assertEqual(s1.x, s1.y)
+        self.assertEqual(s1.id, 3)
+
+    def test_arg_with_kwargs(self):
+        s1 = Square(4)
+        s1.update(7, 8, 9, 6, id = 20, size = 4, x = 2, y = 4)
+        self.assertEqual(s1.area(), 64)
+        self.assertEqual(s1.x, s1.y + 3)
+        self.assertEqual(s1.id, 7)
+
+    def test_kwargs_only(self):
+        s1 = Square(7)
+        s1.update(id = 20, size = 4, x = 2, y = 4)
+        self.assertEqual(s1.area(), 16)
+        self.assertEqual(s1.x, s1.y / 2)
+        self.assertEqual(s1.id, 20)
