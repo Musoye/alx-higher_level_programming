@@ -151,3 +151,18 @@ class TestSquare_stdout(unittest.TestCase):
         self.assertEqual(s1.area(), 16)
         self.assertEqual(s1.x, s1.y / 2)
         self.assertEqual(s1.id, 20)
+
+
+class TestSquareToDict(unittest.TestCase):
+    """convert square to dict representation"""
+
+    def test_dict_first(self):
+        s1 = Square(2, 3, 4, 5)
+        m = {'id': 5, 'x': 3, 'size': 2, 'y': 4}
+        self.assertEqual(s1.to_dictionary(), m)
+
+    def test_dict_second(self):
+        s1 = Square(2)
+        s1.update(3, 4, 5, 6)
+        m = {'id': 3, 'x': 5, 'size': 4, 'y': 6}
+        self.assertEqual(s1.to_dictionary(), m)
