@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/usr/bin/python3
 """The test module for square.py"""
 from models.rectangle import Rectangle
 from models.square import Square
@@ -31,6 +31,7 @@ class TestSquareInstatiation(unittest.TestCase):
         s1 = Square(3)
         self.assertIsInstance(s1, Rectangle)
 
+
 class TestChangecase(unittest.TestCase):
     """change test for width"""
 
@@ -42,6 +43,7 @@ class TestChangecase(unittest.TestCase):
     def test_get_width_height(self):
         s1 = Square(2)
         self.assertEqual(s1.width, s1.height)
+
 
 class TestPrintSquare(unittest.TestCase):
     """testing the handler of print(__str__)"""
@@ -62,3 +64,33 @@ class TestPrintSquare(unittest.TestCase):
         s1.x = 25
         d ="[Square] (5) 25/2 - 4"
         self.assertEqual(d, s1.__str__())
+
+
+class TestSizeSetterGetter(unittest.TestCase):
+    """Test for getting and replacing size"""
+
+    def test_compare_height(self):
+        s1 = Square(4)
+        self.assertEqual(s1.size, s1.height)
+
+    def test_compare_width(self):
+        s1 = Square(4)
+        self.assertEqual(s1.size, s1.width)
+
+    def test_update_size_a(self):
+        s1 = Square(5)
+        s1.size = 8
+        self.assertEqual(s1.height, 8)
+        self.assertEqual(s1.width, 8)
+        self.assertEqual(s1.height, s1.width)
+        self.assertEqual(s1.width, s1.size)
+
+    def test_first_error(self):
+        s2 = Square(7)
+        with self.assertRaises(TypeError):
+            s2.size ='boy'
+
+    def test_second_error(self):
+        s2 = Square(8)
+        with self.assertRaises(ValueError):
+            s2.size = -4
