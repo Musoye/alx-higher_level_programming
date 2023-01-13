@@ -115,3 +115,26 @@ class TestRectangle_stdout(unittest.TestCase):
         r = Rectangle(1, 2, id=5)
         m = "[Rectangle] (5) 0/0 - 1/2"
         self.assertEqual(m, str(r))
+
+
+class TestUpdate(unittest.TestCase):
+    """test update"""
+
+    def test_update_a(self):
+        r = Rectangle(1, 2, 3, 4, 5)
+        r.update(5, 4, 3, 2, 1)
+        m = "[Rectangle] (5) 2/1 - 4/3"
+        self.assertEqual(m, str(r))
+
+    def test_update_b(self):
+        r1 = Rectangle(10, 10, 10, 10)
+        r1.update(89)
+        m = "[Rectangle] (89) 10/10 - 10/10"
+        self.assertEqual(m, str(r1))
+
+    def test_update_c(self):
+        r2 = Rectangle(10, 10, 10, 10)
+        r2.update(89, 2)
+        m = "[Rectangle] (89) 10/10 - 2/10"
+        self.assertEqual(m, str(r2))
+
