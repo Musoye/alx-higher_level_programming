@@ -170,3 +170,19 @@ class TestToDictionary(unittest.TestCase):
          s1.update(6, 5, 4, 5, 6)
          p = {'id': 6, 'width': 5, 'height': 4, 'x': 5, 'y': 6}
          self.assertEqual(s1.to_dictionary(), p)
+
+
+class TestToJson(unittest.TestCase):
+    """Test  for to json"""
+    def test_json_first_a(self):
+        r1 = Rectangle(10, 7, 2, 8, 9)
+        dictionary = r1.to_dictionary()
+        p = '[{"x": 2, "width": 10, "id": 9, "height": 7, "y": 8}]'
+        json_dictionary = Base.to_json_string([dictionary])
+        self.assertEqual(type(json_dictionary), type(p))
+
+    def test_json_first_b(self):
+        dictionary = []
+        p = '[[]]'
+        json_dictionary = Base.to_json_string([dictionary])
+        self.assertEqual(json_dictionary, p)
