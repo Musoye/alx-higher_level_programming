@@ -4,7 +4,11 @@ module.exports = class Square extends require('./4-rectangle.js') {
     super(size, size);
   }
 
-  charPrint (c = 'X') {
+  charPrint (c) {
+    if (c === undefined) {
+      this.print();
+      return;
+    }
     for (let i = 0; i < this.height; i++) {
       let row = '';
       for (let j = 0; j < this.width; j++) {
