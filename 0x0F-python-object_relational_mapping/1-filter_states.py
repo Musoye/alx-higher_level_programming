@@ -10,3 +10,5 @@ if __name__ == "__main__":
     for i in cur.fetchall():
         if (i[1][0] == 'N'):
             print(i)
+    cur.close()
+    db.close()

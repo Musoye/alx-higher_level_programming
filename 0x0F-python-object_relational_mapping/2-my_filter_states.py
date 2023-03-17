@@ -9,3 +9,5 @@ if __name__ == "__main__":
     cur.execute("SELECT * FROM `states` WHERE name='{:s}' ORDER BY `id` ASC".format(sys.argv[4]))
     for i in cur.fetchall():
         print(i)
+    cur.close()
+    db.close()
